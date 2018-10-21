@@ -1,4 +1,4 @@
-package av.chekalov.tacos;
+package av.chekalov.tacos.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
