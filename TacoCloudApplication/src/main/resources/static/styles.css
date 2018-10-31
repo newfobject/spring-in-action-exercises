@@ -1,5 +1,5 @@
 .ingredient-group {
-    
+
 }
 
 .grid {
@@ -10,4 +10,14 @@
 
 #cheeses {
 
+}
+
+.validationError {
+    color: red;
+}
+
+#another {
+    display: block;
+    width: 80%;
+    text-align: right;
 }
