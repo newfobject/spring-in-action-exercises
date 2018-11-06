@@ -30,4 +30,8 @@ public class Order {
     private String ccExpiration;
     @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
     private String ccCVV;
+
+    public void addDesign(Taco taco) {
+
+    }
 }
