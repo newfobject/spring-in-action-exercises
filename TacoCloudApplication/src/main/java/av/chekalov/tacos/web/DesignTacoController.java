@@ -23,8 +23,10 @@ import static av.chekalov.tacos.entity.Ingredient.Type;
 @Slf4j
 @RequestMapping("/design")
 @SessionAttributes("order")
+@SuppressWarnings("squid:S3753") // setComplete on SessionStatus object called in OrderController
 public class DesignTacoController {
 
+    private static final String DESIGN = "design";
     private final IngredientRepository ingredientRepository;
     private final TacoRepository tacoRepository;
 
@@ -43,19 +45,19 @@ public class DesignTacoController {
         for (Type type : types) {
             model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
         }
-        model.addAttribute("design", new Taco());
-        return "design";
+        model.addAttribute(DESIGN, new Taco());
+        return DESIGN;
     }
 
     @PostMapping
     public String processDesign(@Valid Taco design, Errors errors,
                                 @ModelAttribute Order order) {
         if (errors.hasErrors()) {
-            return "redirect:/design";
+            return DESIGN;
         }
 
-        Taco save = tacoRepository.save(design);
-        order.addDesign(save);
+        Taco saved = tacoRepository.save(design);
+        order.addDesign(saved);
 
         return "redirect:/orders/current";
     }
