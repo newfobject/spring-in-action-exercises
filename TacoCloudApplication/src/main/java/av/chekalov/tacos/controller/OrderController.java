@@ -1,4 +1,4 @@
-package av.chekalov.tacos.web;
+package av.chekalov.tacos.controller;
 
 import av.chekalov.tacos.entity.Order;
 import av.chekalov.tacos.repo.OrderRepository;

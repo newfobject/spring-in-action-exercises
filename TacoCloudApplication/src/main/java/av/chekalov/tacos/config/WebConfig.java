@@ -1,4 +1,4 @@
-package av.chekalov.tacos.web;
+package av.chekalov.tacos.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
