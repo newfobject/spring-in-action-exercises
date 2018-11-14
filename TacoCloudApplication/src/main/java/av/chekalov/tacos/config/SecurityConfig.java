@@ -33,8 +33,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/design", "/orders")
-                .hasRole("ROLE_USER")
-                .antMatchers("/", "/**").permitAll();
+                .hasRole("USER")
+                .antMatchers("/", "/**").permitAll()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/design", true)
+                .and()
+                .logout()
+                .logoutSuccessUrl("/").and();
     }
 
     @Bean

@@ -41,6 +41,8 @@ public class Order implements Serializable {
     @ManyToMany(targetEntity = Taco.class)
     @SuppressWarnings("squid:S1948")
     private List<Taco> tacos = new ArrayList<>();
+    @ManyToOne
+    private User user;
 
     public void addDesign(Taco taco) {
         tacos.add(taco);
